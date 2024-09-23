@@ -1,0 +1,14 @@
+<h2>Équipes</h2>
+<ul>
+  <li *ngFor="let equipe of equipes">
+    {{ equipe.nom }} ({{ equipe.championnat }})
+    <button (click)="equipe.id !== undefined ? deleteEquipe(equipe.id) : null" [disabled]="!equipe.id">Supprimer</button>
+  </li>
+</ul>
+
+<h3>Ajouter une nouvelle équipe</h3>
+<form (submit)="addEquipe()">
+  <input [(ngModel)]="newEquipe.nom" placeholder="Nom de l'équipe" required>
+  <input [(ngModel)]="newEquipe.championnat" placeholder="Championnat de l'équipe" required>
+  <button type="submit">Ajouter</button>
+</form>
